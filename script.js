@@ -1,33 +1,70 @@
-//1.1 Mostrar por consola el botón con la clase .showme
+//2.1 Insertar dinamicamente en un html un div vacio con JavaScript
 
-const botonShowme = document.querySelector(".showme");
-console.log(botonShowme);
+const nuevoDiv = document.createElement("div");
+document.body.appendChild(nuevoDiv);
 
-//1.2 Mostrar por consola el h1 con el id #pillado
+//2.2 Insertar dinamicamente en un html un div que contenga una p con JavaScript
 
-const h1Pillado = document.querySelector("#pillado");
-console.log(h1Pillado);
+const nuevoDivConP = document.createElement("div");
+const nuevoP = document.createElement("p");
+nuevoP.textContent = "Párrafo dentro de un div";
+nuevoDivConP.appendChild(nuevoP);
+document.body.appendChild(nuevoDivConP);
 
-//1.3 Mostrar por consola todos los p
+//2.3 Insertar dinamicamente en un html un div que contenga 6 p utilizando un loop con JavaScript
 
-const todosLosP = document.querySelectorAll("p");
-console.log(todosLosP);
+const nuevoDivConSeisP = document.createElement("div");
+for (let i = 0; i < 6; i++) {
+  const nuevoP = document.createElement("p");
+  nuevoP.textContent = `Párrafo ${i + 1}`;
+  nuevoDivConSeisP.appendChild(nuevoP);
+}
+document.body.appendChild(nuevoDivConSeisP);
 
-//1.4 Mostrar por consola todos los elemnetos con la clase.pokemon
+//2.4 Insertar dinamicamente con JavaScript en un html una p con el texto "Soy dinámico"
 
-const pokemon = document.querySelectorAll(".pokemon");
-console.log(pokemon);
+const nuevoPdinamico = document.createElement("p");
+nuevoPdinamico.textContent = "Soy dinámico";
+document.body.appendChild(nuevoPdinamico);
 
-//1.5 Mostrar por consola todos los elementos con el atributo data-function="testMe"
+//2.5 Insertar en el h2 con la clase .fn-insert-here el texto 'Wubba Lubba dub dub'
 
-const elementosDataFunction = document.querySelectorAll(
-  '[data-function="testMe"]'
-);
-console.log(elementosDataFunction);
+const h2InsertHere = document.querySelector(".fn-insert-here");
+h2InsertHere.textContent = "Wubba Lubba dub dub";
 
-//1.6 Mostrar por consola el tercer personaje con el atributo data-function="testMe"
+//2.6 Basandote en el siguiente array crea una lista ul > li con textos del array
 
-const tercerPersonaje = document.querySelector(
-  '[data-function="testMe"]:nth-child(3)'
-);
-console.log(tercerPersonaje);
+const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];
+const nuevaUl = document.createElement("ul");
+
+apps.forEach(app => {
+  const nuevoLi = document.createElement("li");
+  nuevoLi.textContent = app;
+  nuevaUl.appendChild(nuevoLi);
+});
+
+document.body.appendChild(nuevaUl);
+
+//2.7 Elimina todos los nodos que tengan la clase .fn-remove-me
+
+const elementosToRemover = document.querySelectorAll(".fn-remove-me");
+elementosToRemover.forEach(elemento => {
+    elemento.remove();
+    });
+
+//2.8 Inserta una p con el texto 'Voy en medio' entre los div
+
+const nuevoPMedio = document.createElement("p");
+nuevoPMedio.textContent = "Voy en medio";
+
+const divs = document.querySelectorAll("div");
+document.body.insertBefore(nuevoPMedio, divs[1]);
+
+//2.9 Inserta p con el texto 'Voy dentro', dentro de todos los div con la clase .fn-insert-inside
+
+const divsParaInsertar = document.querySelectorAll(".fn-insert-inside");
+divsParaInsertar.forEach(div => {
+  const nuevoPInterna = document.createElement("p");
+  nuevoPInterna.textContent = "Voy dentro";
+  div.appendChild(nuevoPInterna);
+});
